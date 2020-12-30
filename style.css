@@ -127,7 +127,7 @@ form {
 }
 
 .col-padding {
-  padding: 4rem;
+  padding: 2rem;
 }
 
 .center {
@@ -507,9 +507,20 @@ form {
   -webkit-backface-visibility: hidden;
 }
 
+.side-panel-left #side-panel {
+  left: -300px;
+  right: auto;
+}
+
 .side-push-panel.stretched #wrapper,
 .side-push-panel.stretched .sticky-header .container {
   right: 0;
+}
+
+.side-panel-left.side-push-panel.stretched #wrapper,
+.side-panel-left.side-push-panel.stretched .sticky-header .container {
+  left: 0;
+  right: auto;
 }
 
 #side-panel .side-panel-wrap {
@@ -521,6 +532,10 @@ form {
   height: 100%;
   overflow: auto;
   padding: 50px 70px 50px 40px;
+}
+
+.device-touch #side-panel .side-panel-wrap {
+  overflow-y: scroll;
 }
 
 #side-panel .widget {
@@ -536,6 +551,41 @@ form {
   margin: 0;
 }
 
+.side-panel-open #side-panel {
+  right: 0;
+}
+
+.side-panel-left.side-panel-open #side-panel {
+  left: 0;
+  right: auto;
+}
+
+.side-push-panel.side-panel-open.stretched #wrapper,
+.side-push-panel.side-panel-open.stretched .sticky-header .container {
+  right: 300px;
+}
+
+.side-push-panel.side-panel-open.stretched.device-xl .slider-inner,
+.side-push-panel.side-panel-open.stretched.device-lg .slider-inner {
+  left: -300px;
+}
+
+.side-panel-left.side-push-panel.side-panel-open.stretched #wrapper,
+.side-panel-left.side-push-panel.side-panel-open.stretched
+  .sticky-header
+  .container,
+.side-panel-left.side-push-panel.side-panel-open.stretched .slider-inner {
+  left: 300px;
+  right: auto;
+}
+
+#side-panel-trigger {
+  display: block;
+  cursor: pointer;
+  z-index: 11;
+  margin-right: 5px;
+}
+
 #side-panel-trigger-close a {
   display: none;
 }
@@ -546,6 +596,15 @@ form {
   -webkit-transition: right 0.4s ease;
   -o-transition: right 0.4s ease;
   transition: right 0.4s ease;
+}
+
+.side-panel-left #side-panel,
+.side-panel-left.side-push-panel.stretched #wrapper,
+.side-panel-left.side-push-panel.stretched #header .container,
+.side-push-panel.stretched .slider-inner {
+  -webkit-transition: left 0.4s ease;
+  -o-transition: left 0.4s ease;
+  transition: left 0.4s ease;
 }
 
 .body-overlay {
@@ -562,6 +621,17 @@ form {
   -webkit-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
+}
+
+.side-panel-open .body-overlay {
+  opacity: 1;
+  z-index: 599;
+  pointer-events: auto;
+}
+
+.side-panel-open:not(.device-xs):not(.device-sm):not(.device-md)
+  .body-overlay:hover {
+  cursor: url("images/icons/close.png") 15 15, default;
 }
 
 /* ----------------------------------------------------------------
